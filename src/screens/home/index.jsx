@@ -6,7 +6,7 @@ import { todos } from "../../constants/data";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import { colors } from "../../constants/themes";
  
-const Home = () => {
+const Home = ({ navigation }) => {
     const initialTodos = todos.sort((a, b) => a.isCompleted - b.isCompleted);
     const [localData, setLocalData] = useState(
         initialTodos
@@ -49,7 +49,7 @@ const Home = () => {
                 </View>
                 <TodoList items={todosTomorrow} />
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('Create')} style={styles.button}>
                 <Ionicons name="add" size={24} color={colors.white} />
             </TouchableOpacity>
         </SafeAreaView>
